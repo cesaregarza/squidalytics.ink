@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "squidalytics-ink"
+version = "0.1.0"
+description = "Squidalytics Main Website built in Django"
+authors = ["Cesar E Garza <cesar@cegarza.com>"]
+license = "GPL-3.0-or-later"
+readme = "README.md"
+packages = [{include = "squidalytics"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+django = "^4.2"
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.3.0"
+isort = "^5.12.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
