@@ -1,0 +1,2 @@
+# squidalytics.ink
+Squidalytics website
