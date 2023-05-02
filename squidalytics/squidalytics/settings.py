@@ -31,8 +31,7 @@ if DEBUG:
 # Get the secret key from the environment variable
 SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY")
 
-
-ALLOWED_HOSTS = ["squidalytics.ink"]
+ALLOWED_HOSTS = ["squidalytics.ink", "localhost"]
 
 
 # Application definition
