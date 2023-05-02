@@ -1,2 +1,2 @@
 # squidalytics.ink
-Squidalytics website 
+Squidalytics website
