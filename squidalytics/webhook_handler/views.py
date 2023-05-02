@@ -46,6 +46,7 @@ def handle_webhook(request: HttpRequest) -> JsonResponse:
     if request.method == "POST":
         payload = json.loads(request.body)
         ref = payload["ref"]
+        logger.info(f"Received webhook for {ref}")
 
         if ref == "refs/heads/main":
             # Handle the main branch update
@@ -57,6 +58,7 @@ def handle_webhook(request: HttpRequest) -> JsonResponse:
 
         else:
             # Ignore updates to other branches
+            logger.info("Ignoring branch update")
             pass
 
         return JsonResponse({"status": "success"})

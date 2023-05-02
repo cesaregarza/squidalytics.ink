@@ -139,24 +139,29 @@ STATIC_URL = "/static/"
 
 # LOGGING
 LOGGING = {
-    "version": 1,
-    "disable_existing_loggers": False,
-    "formatters": {
-        "verbose": {
-            "format": "{levelname} {asctime} {module} {message}",
-            "style": "{",
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': '{levelname} {asctime} {module} {message}',
+            'style': '{',
         },
     },
-    "handlers": {
-        "console": {
-            "class": "logging.StreamHandler",
-            "formatter": "verbose",
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+            'formatter': 'verbose',
         },
     },
-    "loggers": {
-        "django": {
-            "handlers": ["console"],
-            "level": "INFO",
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+            'level': 'INFO',
+        },
+        'webhook_handler': {
+            'handlers': ['console'],
+            'level': 'INFO',
         },
     },
 }
+
