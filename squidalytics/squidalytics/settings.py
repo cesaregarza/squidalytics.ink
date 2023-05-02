@@ -33,7 +33,7 @@ DEBUG = False
 # Get the secret key from the environment variable
 SECRET_KEY = os.environ.get(DJANGO_SECRET)
 
-ALLOWED_HOSTS = ["squidalytics.ink", "127.0.0.1"]
+ALLOWED_HOSTS = ["squidalytics.ink", "127.0.0.1", "53d6-107-211-228-55.ngrok-free.app"]
 
 
 # Application definition
