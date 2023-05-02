@@ -26,14 +26,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # Get the secret key from the environment variable
 SECRET_KEY = os.environ.get(DJANGO_SECRET)
 
-ALLOWED_HOSTS = ["squidalytics.ink", "127.0.0.1"]
+ALLOWED_HOSTS = ["squidalytics.ink", "127.0.0.1", "53d6-107-211-228-55.ngrok-free.app"]
 
 
 # Application definition
