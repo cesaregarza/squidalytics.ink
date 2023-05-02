@@ -14,9 +14,13 @@ from pathlib import Path
 
 from dotenv import load_dotenv
 
-from squidalytics.env_names import DJANGO_SECRET
+from squidalytics.env_names import DJANGO_SECRET, TEST_SECRET
 
 load_dotenv()
+# This should only activate when on the PythonAnywhere server
+if os.environ.get(TEST_SECRET) is None:
+    project_folder = os.path.expanduser("~/squidalytics")
+    load_dotenv(os.path.join(project_folder, ".env"))
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
