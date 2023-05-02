@@ -46,17 +46,19 @@ def handle_webhook(request: HttpRequest) -> JsonResponse:
     if request.method == "POST":
         payload = json.loads(request.body)
         ref = payload["ref"]
+        logger.info(f"Received webhook for {ref}")
 
         if ref == "refs/heads/main":
             # Handle the main branch update
             script_path = (
                 pathlib.Path(__file__).resolve().parent / "update_site.sh"
             )
-            # subprocess.run("bash", str(script_path))
+            subprocess.run("bash", str(script_path))
             logger.info("Main branch updated")
 
         else:
             # Ignore updates to other branches
+            logger.info("Ignoring branch update")
             pass
 
         return JsonResponse({"status": "success"})
