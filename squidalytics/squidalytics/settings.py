@@ -12,6 +12,12 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 import os
 from pathlib import Path
 
+from dotenv import load_dotenv
+
+from squidalytics.env_names import DJANGO_SECRET
+
+load_dotenv()
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -22,16 +28,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-if DEBUG:
-    # Set the secret key to a known value for development
-    from squidalytics.local_settings import *
-
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # Get the secret key from the environment variable
-SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY")
+SECRET_KEY = os.environ.get(DJANGO_SECRET)
 
-ALLOWED_HOSTS = ["squidalytics.ink", "localhost"]
+ALLOWED_HOSTS = ["squidalytics.ink", "127.0.0.1"]
 
 
 # Application definition
@@ -134,3 +136,27 @@ MEDIA_ROOT = "/home/cegarza/squidalytics/media"
 MEDIA_URL = "/media/"
 STATIC_ROOT = "/home/cegarza/squidalytics/static"
 STATIC_URL = "/static/"
+
+# LOGGING
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "formatters": {
+        "verbose": {
+            "format": "{levelname} {asctime} {module} {message}",
+            "style": "{",
+        },
+    },
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
+            "formatter": "verbose",
+        },
+    },
+    "loggers": {
+        "django": {
+            "handlers": ["console"],
+            "level": "INFO",
+        },
+    },
+}
