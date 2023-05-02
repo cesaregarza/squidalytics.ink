@@ -10,6 +10,7 @@ packages = [{include = "squidalytics"}]
 [tool.poetry.dependencies]
 python = "^3.10"
 django = "^4.2"
+python-dotenv = "^1.0.0"
 
 
 [tool.poetry.group.dev.dependencies]

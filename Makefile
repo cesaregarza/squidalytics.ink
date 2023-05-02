@@ -2,6 +2,7 @@
 
 check-deploy:
 	@poetry run python squidalytics/manage.py check --deploy
+	
 
 .PHONY: format
 
