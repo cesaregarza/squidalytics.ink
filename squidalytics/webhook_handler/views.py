@@ -53,7 +53,7 @@ def handle_webhook(request: HttpRequest) -> JsonResponse:
             script_path = (
                 pathlib.Path(__file__).resolve().parent / "update_site.sh"
             )
-            # subprocess.run("bash", str(script_path))
+            subprocess.run("bash", str(script_path))
             logger.info("Main branch updated")
 
         else:
