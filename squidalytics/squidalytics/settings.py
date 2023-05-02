@@ -33,7 +33,11 @@ DEBUG = False
 # Get the secret key from the environment variable
 SECRET_KEY = os.environ.get(DJANGO_SECRET)
 
-ALLOWED_HOSTS = ["squidalytics.ink", "127.0.0.1", "53d6-107-211-228-55.ngrok-free.app"]
+ALLOWED_HOSTS = [
+    "squidalytics.ink",
+    "127.0.0.1",
+    "53d6-107-211-228-55.ngrok-free.app",
+]
 
 
 # Application definition
@@ -139,29 +143,28 @@ STATIC_URL = "/static/"
 
 # LOGGING
 LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'formatters': {
-        'verbose': {
-            'format': '{levelname} {asctime} {module} {message}',
-            'style': '{',
+    "version": 1,
+    "disable_existing_loggers": False,
+    "formatters": {
+        "verbose": {
+            "format": "{levelname} {asctime} {module} {message}",
+            "style": "{",
         },
     },
-    'handlers': {
-        'console': {
-            'class': 'logging.StreamHandler',
-            'formatter': 'verbose',
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
+            "formatter": "verbose",
         },
     },
-    'loggers': {
-        'django': {
-            'handlers': ['console'],
-            'level': 'INFO',
+    "loggers": {
+        "django": {
+            "handlers": ["console"],
+            "level": "INFO",
         },
-        'webhook_handler': {
-            'handlers': ['console'],
-            'level': 'INFO',
+        "webhook_handler": {
+            "handlers": ["console"],
+            "level": "INFO",
         },
     },
 }
-
