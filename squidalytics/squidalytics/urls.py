@@ -15,8 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+from landing.views import hello_world
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("webhook_handler/", include("webhook_handler.urls")),
+    path("", hello_world, name="hello_world"),
 ]
