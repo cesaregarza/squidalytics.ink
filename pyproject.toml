@@ -11,6 +11,7 @@ packages = [{include = "squidalytics"}]
 python = "^3.10"
 django = "^4.2"
 python-dotenv = "^1.0.0"
+wagtail = "^5.0"
 
 
 [tool.poetry.group.dev.dependencies]
