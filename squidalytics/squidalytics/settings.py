@@ -14,11 +14,20 @@ from pathlib import Path
 
 from dotenv import load_dotenv
 
-from squidalytics.env_names import DJANGO_SECRET, TEST_SECRET
+from squidalytics.env_names import (
+    DJANGO_SECRET,
+    POSTGRES_DB,
+    POSTGRES_HOST,
+    POSTGRES_PASSWORD,
+    POSTGRES_PORT,
+    POSTGRES_USER,
+    TEST_SECRET,
+)
 
 load_dotenv()
 # This should only activate when on the PythonAnywhere server
-if os.environ.get(TEST_SECRET) is None:
+is_production = os.environ.get(TEST_SECRET) is None
+if is_production:
     project_folder = os.path.expanduser("~/squidalytics")
     load_dotenv(os.path.join(project_folder, ".env"))
 
@@ -53,6 +62,19 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "wagtail.contrib.forms",
+    "wagtail.contrib.redirects",
+    "wagtail.embeds",
+    "wagtail.sites",
+    "wagtail.users",
+    "wagtail.snippets",
+    "wagtail.documents",
+    "wagtail.images",
+    "wagtail.search",
+    "wagtail.admin",
+    "wagtail",
+    "modelcluster",
+    "taggit",
     "landing",
 ]
 
@@ -64,6 +86,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "wagtail.contrib.redirects.middleware.RedirectMiddleware",
 ]
 
 ROOT_URLCONF = "squidalytics.urls"
@@ -71,7 +94,7 @@ ROOT_URLCONF = "squidalytics.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [BASE_DIR / "templates"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -89,11 +112,14 @@ WSGI_APPLICATION = "squidalytics.wsgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
-
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": os.environ.get(POSTGRES_DB),
+        "USER": os.environ.get(POSTGRES_USER),
+        "PASSWORD": os.environ.get(POSTGRES_PASSWORD),
+        "HOST": os.environ.get(POSTGRES_HOST),
+        "PORT": os.environ.get(POSTGRES_PORT),
     }
 }
 
@@ -141,12 +167,17 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # default static files settings for PythonAnywhere.
 # see https://help.pythonanywhere.com/pages/DjangoStaticFiles for more info
-MEDIA_ROOT = "/home/cegarza/squidalytics/media"
+if is_production:
+    MEDIA_ROOT = "/home/cegarza/squidalytics/media"
+    STATIC_ROOT = "/home/cegarza/squidalytics/static"
+else:
+    STATICFILES_DIRS = [BASE_DIR / "static"]
 MEDIA_URL = "/media/"
-STATIC_ROOT = "/home/cegarza/squidalytics/static"
 STATIC_URL = "/static/"
 
+
 # LOGGING
+LOG_LEVEL = "WARNING" if is_production else "INFO"
 LOGGING = {
     "version": 1,
     "disable_existing_loggers": False,
@@ -165,11 +196,15 @@ LOGGING = {
     "loggers": {
         "django": {
             "handlers": ["console"],
-            "level": "INFO",
+            "level": LOG_LEVEL,
         },
         "webhook_handler": {
             "handlers": ["console"],
-            "level": "INFO",
+            "level": LOG_LEVEL,
         },
     },
 }
+
+# Wagtail settings
+WAGTAIL_SITE_NAME = "squidalytics.ink"
+WAGTAILADMIN_BASE_URL = "/cms/"

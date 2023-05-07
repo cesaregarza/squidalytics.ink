@@ -1,0 +1,9 @@
+{% load static %}
+
+<div class="equation-block">
+    <div class="equation-content">
+        {% autoescape off %}
+        \[{{ value }}\]
+        {% endautoescape %}
+    </div>
+</div>
