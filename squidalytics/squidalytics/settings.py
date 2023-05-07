@@ -171,7 +171,7 @@ if is_production:
     MEDIA_ROOT = "/home/cegarza/squidalytics/media"
     STATIC_ROOT = "/home/cegarza/squidalytics/static"
 else:
-    STATICFILE_DIRS = [BASE_DIR / "static"]
+    STATICFILES_DIRS = [BASE_DIR / "static"]
 MEDIA_URL = "/media/"
 STATIC_URL = "/static/"
 
