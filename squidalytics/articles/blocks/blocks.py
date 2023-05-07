@@ -2,10 +2,10 @@ from wagtail.blocks import (
     CharBlock,
     ChoiceBlock,
     RichTextBlock,
+    StreamBlock,
     StructBlock,
     TextBlock,
     URLBlock,
-    StreamBlock,
 )
 from wagtail.embeds.blocks import EmbedBlock
 from wagtail.images.blocks import ImageChooserBlock

@@ -12,6 +12,7 @@ python = "^3.10"
 django = "^4.2"
 python-dotenv = "^1.0.0"
 wagtail = "^5.0"
+psycopg2-binary = "^2.9.6"
 
 
 [tool.poetry.group.dev.dependencies]
