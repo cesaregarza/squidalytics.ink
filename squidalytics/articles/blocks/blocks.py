@@ -84,3 +84,4 @@ class BaseStreamBlock(StreamBlock):
         icon="media",
         template="blocks/embed_block.html",
     )
+    equation_block = EquationBlock()
