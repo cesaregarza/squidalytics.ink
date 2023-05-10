@@ -1,10 +1,9 @@
-{% extends "base.html" %}
+{% extends "articles/blog_base.html" %}
 {% load wagtailimages_tags %}
 
 {% block content %}
 
     {% image self.image fill-1920x600 as hero_img %}
-    {% include "includes/header-blog.html" %}
 
     <div class="container">
         <div class="row">

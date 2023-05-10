@@ -3,8 +3,7 @@ window.MathJax = {
       inlineMath: [['$', '$'], ['\\(', '\\)']],
       displayMath: [['$$', '$$'], ['\\[', '\\]']],
       processEscapes: true,
-      processEnvironments: true,
-      texHints: true
+      processEnvironments: true
     },
     options: {
       ignoreHtmlClass: 'tex2jax_ignore',

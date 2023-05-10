@@ -1,5 +1,6 @@
+{% extends "includes/header.html" %}
 {% load wagtailcore_tags wagtailimages_tags %}
-
+{% block postheader %}
 {% if page.image %}
     {% image page.image fill-1920x600 as image %}
     <div class="container-fluid hero hero--blog" style="background-image:url('{{ image.url }}')"></div>
@@ -24,3 +25,4 @@
         </div>
     </div>
 </div>
+{% endblock %}
