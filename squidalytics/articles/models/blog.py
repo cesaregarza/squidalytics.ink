@@ -1,5 +1,3 @@
-from django.db import models
-
 # Create your models here.
 from django.contrib import messages
 from django.db import models
@@ -16,6 +14,7 @@ from wagtail.search import index
 from ..blocks import BaseStreamBlock
 from .base import Person
 
+
 class BlogPersonRelationship(Orderable, models.Model):
     """
     This defines the relationship between the `Person` within the `base`
@@ -26,10 +25,14 @@ class BlogPersonRelationship(Orderable, models.Model):
     """
 
     page = ParentalKey(
-        "BlogPage", related_name="blog_person_relationship", on_delete=models.CASCADE
+        "BlogPage",
+        related_name="blog_person_relationship",
+        on_delete=models.CASCADE,
     )
     person = models.ForeignKey(
-        Person, related_name="person_blog_relationship", on_delete=models.CASCADE
+        Person,
+        related_name="person_blog_relationship",
+        on_delete=models.CASCADE,
     )
     panels = [FieldPanel("person")]
 
@@ -55,7 +58,9 @@ class BlogPage(Page):
     https://docs.wagtail.org/en/stable/topics/pages.html#inline-models
     """
 
-    introduction = models.TextField(help_text="Text to describe the page", blank=True)
+    introduction = models.TextField(
+        help_text="Text to describe the page", blank=True
+    )
     image = models.ForeignKey(
         "wagtailimages.Image",
         null=True,
@@ -65,11 +70,16 @@ class BlogPage(Page):
         help_text="Landscape mode only; horizontal width between 1000px and 3000px.",
     )
     body = StreamField(
-        BaseStreamBlock(), verbose_name="Page body", blank=True, use_json_field=True
+        BaseStreamBlock(),
+        verbose_name="Page body",
+        blank=True,
+        use_json_field=True,
     )
     subtitle = models.CharField(blank=True, max_length=255)
     tags = ClusterTaggableManager(through=BlogPageTag, blank=True)
-    date_published = models.DateField("Date article published", blank=True, null=True)
+    date_published = models.DateField(
+        "Date article published", blank=True, null=True
+    )
 
     content_panels = Page.content_panels + [
         FieldPanel("subtitle"),
@@ -138,7 +148,9 @@ class BlogIndexPage(RoutablePageMixin, Page):
     defined above.
     """
 
-    introduction = models.TextField(help_text="Text to describe the page", blank=True)
+    introduction = models.TextField(
+        help_text="Text to describe the page", blank=True
+    )
     image = models.ForeignKey(
         "wagtailimages.Image",
         null=True,
@@ -167,7 +179,9 @@ class BlogIndexPage(RoutablePageMixin, Page):
     def get_context(self, request):
         context = super(BlogIndexPage, self).get_context(request)
         context["posts"] = (
-            BlogPage.objects.descendant_of(self).live().order_by("-date_published")
+            BlogPage.objects.descendant_of(self)
+            .live()
+            .order_by("-date_published")
         )
         return context
 
@@ -178,7 +192,6 @@ class BlogIndexPage(RoutablePageMixin, Page):
     @route(r"^tags/$", name="tag_archive")
     @route(r"^tags/([\w-]+)/$", name="tag_archive")
     def tag_archive(self, request, tag=None):
-
         try:
             tag = Tag.objects.get(slug=tag)
         except Tag.DoesNotExist:

@@ -1,6 +1,8 @@
-from wagtail.contrib.modeladmin.options import (
-    ModelAdmin, modeladmin_register)
+from wagtail import hooks
+from wagtail.contrib.modeladmin.options import ModelAdmin, modeladmin_register
+
 from .models.blog import BlogIndexPage
+
 
 class YourNewPageAdmin(ModelAdmin):
     model = BlogIndexPage
@@ -12,4 +14,12 @@ class YourNewPageAdmin(ModelAdmin):
     list_display = ("title",)
     search_fields = ("title",)
 
+
 modeladmin_register(YourNewPageAdmin)
+
+
+@hooks.register("register_icons")
+def register_icons(icons):
+    return icons + [
+        "icons/latex-svgrepo-com.svg",
+    ]

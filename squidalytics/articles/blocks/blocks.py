@@ -62,7 +62,7 @@ class EquationBlock(StructBlock):
     equation = TextBlock()
 
     class Meta:
-        icon = "fa-function"
+        icon = "latex"
         template = "blocks/equation_block.html"
         label = "Equation"
 

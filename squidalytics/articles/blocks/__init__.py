@@ -1,3 +1,1 @@
-from .blocks import (
-    BaseStreamBlock,
-)
+from .blocks import BaseStreamBlock

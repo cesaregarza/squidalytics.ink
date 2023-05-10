@@ -47,8 +47,7 @@ class Person(
     https://github.com/wagtail/django-modelcluster
     """
 
-    first_name = models.CharField("First name", max_length=254)
-    last_name = models.CharField("Last name", max_length=254)
+    display_name = models.CharField("Display Name", max_length=254)
     job_title = models.CharField("Job title", max_length=254)
 
     image = models.ForeignKey(
@@ -64,8 +63,7 @@ class Person(
             [
                 FieldRowPanel(
                     [
-                        FieldPanel("first_name"),
-                        FieldPanel("last_name"),
+                        FieldPanel("display_name"),
                     ]
                 )
             ],
@@ -77,10 +75,8 @@ class Person(
     ]
 
     search_fields = [
-        index.SearchField("first_name"),
-        index.SearchField("last_name"),
-        index.AutocompleteField("first_name"),
-        index.AutocompleteField("last_name"),
+        index.SearchField("display_name"),
+        index.AutocompleteField("display_name"),
     ]
 
     @property
@@ -94,10 +90,12 @@ class Person(
 
     @property
     def preview_modes(self):
-        return PreviewableMixin.DEFAULT_PREVIEW_MODES + [("blog_post", _("Blog post"))]
+        return PreviewableMixin.DEFAULT_PREVIEW_MODES + [
+            ("blog_post", _("Blog post"))
+        ]
 
     def __str__(self):
-        return "{} {}".format(self.first_name, self.last_name)
+        return "{}".format(self.display_name)
 
     def get_preview_template(self, request, mode_name):
         from squidalytics.articles.models.blog import BlogPage
@@ -113,12 +111,15 @@ class Person(
         if mode_name == self.default_preview_mode:
             return context
 
-        page = BlogPage.objects.filter(blog_person_relationship__person=self).first()
+        page = BlogPage.objects.filter(
+            blog_person_relationship__person=self
+        ).first()
         if page:
             # Use the page authored by this person if available,
             # and replace the instance from the database with the edited instance
             page.authors = [
-                self if author.pk == self.pk else author for author in page.authors()
+                self if author.pk == self.pk else author
+                for author in page.authors()
             ]
             # The authors() method only shows live authors, so make sure the instance
             # is included even if it's not live as this is just a preview
@@ -138,7 +139,9 @@ class Person(
 
 
 @register_snippet
-class FooterText(DraftStateMixin, RevisionMixin, PreviewableMixin, models.Model):
+class FooterText(
+    DraftStateMixin, RevisionMixin, PreviewableMixin, models.Model
+):
     """
     This provides editable text for the site footer. Again it uses the decorator
     `register_snippet` to allow it to be accessible via the admin. It is made
@@ -173,7 +176,9 @@ class StandardPage(Page):
     image, introduction and body field
     """
 
-    introduction = models.TextField(help_text="Text to describe the page", blank=True)
+    introduction = models.TextField(
+        help_text="Text to describe the page", blank=True
+    )
     image = models.ForeignKey(
         "wagtailimages.Image",
         null=True,
@@ -183,7 +188,10 @@ class StandardPage(Page):
         help_text="Landscape mode only; horizontal width between 1000px and 3000px.",
     )
     body = StreamField(
-        BaseStreamBlock(), verbose_name="Page body", blank=True, use_json_field=True
+        BaseStreamBlock(),
+        verbose_name="Page body",
+        blank=True,
+        use_json_field=True,
     )
     content_panels = Page.content_panels + [
         FieldPanel("introduction"),
@@ -248,10 +256,15 @@ class HomePage(Page):
         help_text="Promo image",
     )
     promo_title = models.CharField(
-        blank=True, max_length=255, help_text="Title to display above the promo copy"
+        blank=True,
+        max_length=255,
+        help_text="Title to display above the promo copy",
     )
     promo_text = RichTextField(
-        null=True, blank=True, max_length=1000, help_text="Write some promotional copy"
+        null=True,
+        blank=True,
+        max_length=1000,
+        help_text="Write some promotional copy",
     )
 
     # Featured sections on the HomePage
@@ -260,7 +273,9 @@ class HomePage(Page):
     # Each list their children items that we access via the children function
     # that we define on the individual Page models e.g. BlogIndexPage
     featured_section_1_title = models.CharField(
-        blank=True, max_length=255, help_text="Title to display above the promo copy"
+        blank=True,
+        max_length=255,
+        help_text="Title to display above the promo copy",
     )
     featured_section_1 = models.ForeignKey(
         "wagtailcore.Page",
@@ -274,7 +289,9 @@ class HomePage(Page):
     )
 
     featured_section_2_title = models.CharField(
-        blank=True, max_length=255, help_text="Title to display above the promo copy"
+        blank=True,
+        max_length=255,
+        help_text="Title to display above the promo copy",
     )
     featured_section_2 = models.ForeignKey(
         "wagtailcore.Page",
@@ -288,7 +305,9 @@ class HomePage(Page):
     )
 
     featured_section_3_title = models.CharField(
-        blank=True, max_length=255, help_text="Title to display above the promo copy"
+        blank=True,
+        max_length=255,
+        help_text="Title to display above the promo copy",
     )
     featured_section_3 = models.ForeignKey(
         "wagtailcore.Page",
@@ -361,17 +380,23 @@ class GalleryPage(Page):
     and is intended to show the extensibility of this aspect of Wagtail
     """
 
-    introduction = models.TextField(help_text="Text to describe the page", blank=True)
+    introduction = models.TextField(
+        help_text="Text to describe the page", blank=True
+    )
     image = models.ForeignKey(
         "wagtailimages.Image",
         null=True,
         blank=True,
         on_delete=models.SET_NULL,
         related_name="+",
-        help_text="Landscape mode only; horizontal width between 1000px and " "3000px.",
+        help_text="Landscape mode only; horizontal width between 1000px and "
+        "3000px.",
     )
     body = StreamField(
-        BaseStreamBlock(), verbose_name="Page body", blank=True, use_json_field=True
+        BaseStreamBlock(),
+        verbose_name="Page body",
+        blank=True,
+        use_json_field=True,
     )
     collection = models.ForeignKey(
         Collection,
@@ -404,7 +429,9 @@ class FormField(AbstractFormField):
     https://docs.wagtail.org/en/stable/reference/contrib/forms/index.html
     """
 
-    page = ParentalKey("FormPage", related_name="form_fields", on_delete=models.CASCADE)
+    page = ParentalKey(
+        "FormPage", related_name="form_fields", on_delete=models.CASCADE
+    )
 
 
 class FormPage(AbstractEmailForm):
