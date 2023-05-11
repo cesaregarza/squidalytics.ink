@@ -160,7 +160,7 @@ class FooterText(
         return "Footer text"
 
     def get_preview_template(self, request, mode_name):
-        return "base.html"
+        return "cms/base.html"
 
     def get_preview_context(self, request, mode_name):
         return {"footer_text": self.body}

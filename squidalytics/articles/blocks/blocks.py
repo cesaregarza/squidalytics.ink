@@ -1,6 +1,7 @@
 from wagtail.blocks import (
     CharBlock,
     ChoiceBlock,
+    RawHTMLBlock,
     RichTextBlock,
     StreamBlock,
     StructBlock,
@@ -9,6 +10,7 @@ from wagtail.blocks import (
 )
 from wagtail.embeds.blocks import EmbedBlock
 from wagtail.images.blocks import ImageChooserBlock
+from wagtailcodeblock.blocks import CodeBlock
 
 
 class ImageBlock(StructBlock):
@@ -18,7 +20,7 @@ class ImageBlock(StructBlock):
 
     class Meta:
         icon = "image"
-        template = "blocks/image_block.html"
+        template = "cms/blocks/image_block.html"
 
 
 class HeadingBlock(StructBlock):
@@ -36,7 +38,7 @@ class HeadingBlock(StructBlock):
 
     class Meta:
         icon = "title"
-        template = "blocks/heading_block.html"
+        template = "cms/blocks/heading_block.html"
 
 
 class BlockQuote(StructBlock):
@@ -51,7 +53,7 @@ class BlockQuote(StructBlock):
 
     class Meta:
         icon = "openquote"
-        template = "blocks/blockquote.html"
+        template = "cms/blocks/blockquote.html"
 
 
 class EquationBlock(StructBlock):
@@ -63,8 +65,14 @@ class EquationBlock(StructBlock):
 
     class Meta:
         icon = "latex"
-        template = "blocks/equation_block.html"
+        template = "cms/blocks/equation_block.html"
         label = "Equation"
+
+
+class HTMLBlock(RawHTMLBlock):
+    class Meta:
+        icon = "html-icon"
+        label = "HTML"
 
 
 # StreamBlocks
@@ -75,13 +83,17 @@ class BaseStreamBlock(StreamBlock):
 
     heading_block = HeadingBlock()
     paragraph_block = RichTextBlock(
-        icon="pilcrow", template="blocks/paragraph_block.html"
+        icon="pilcrow", template="cms/blocks/paragraph_block.html"
     )
     image_block = ImageBlock()
     block_quote = BlockQuote()
     embed_block = EmbedBlock(
         help_text="Insert an embed URL e.g https://www.youtube.com/watch?v=SGJFWirQ3ks",
         icon="media",
-        template="blocks/embed_block.html",
+        template="cms/blocks/embed_block.html",
     )
     equation_block = EquationBlock()
+    html_block = HTMLBlock()
+    code_block = CodeBlock(
+        label="Code",
+    )

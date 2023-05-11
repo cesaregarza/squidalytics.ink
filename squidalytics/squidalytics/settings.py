@@ -76,6 +76,7 @@ INSTALLED_APPS = [
     "wagtail",
     "modelcluster",
     "taggit",
+    "wagtailcodeblock",
     "landing",
     "articles",
 ]
@@ -217,3 +218,11 @@ LOGGING = {
 # Wagtail settings
 WAGTAIL_SITE_NAME = "squidalytics.ink"
 WAGTAILADMIN_BASE_URL = "/cms/"
+WAGTAIL_CODE_BLOCK_LANGUAGES = (
+    ("bash", "Bash/Shell"),
+    ("json", "JSON"),
+    ("python", "Python"),
+    ("yaml", "YAML"),
+)
+WAGTAIL_CODE_BLOCK_THEME = "twilight"
+WAGTAIL_CODE_BLOCK_LINE_NUMBERS = True

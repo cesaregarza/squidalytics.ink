@@ -22,4 +22,5 @@ modeladmin_register(YourNewPageAdmin)
 def register_icons(icons):
     return icons + [
         "icons/latex-svgrepo-com.svg",
+        "icons/filetype-html.svg",
     ]

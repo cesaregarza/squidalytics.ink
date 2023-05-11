@@ -137,6 +137,8 @@ class BlogPage(Page):
     # Empty list means that no child content types are allowed.
     subpage_types = []
 
+    template = "cms/articles/blog_page.html"
+
 
 class BlogIndexPage(RoutablePageMixin, Page):
     """
@@ -224,3 +226,5 @@ class BlogIndexPage(RoutablePageMixin, Page):
             tags += post.get_tags
         tags = sorted(set(tags))
         return tags
+    
+    template = "cms/articles/blog_index_page.html"

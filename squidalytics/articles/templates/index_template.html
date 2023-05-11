@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "cms/base.html" %}
 {% load wagtailcore_tags navigation_tags wagtailimages_tags %}
 
 {% if tag %}
@@ -21,5 +21,5 @@
         <p><a href="{% pageurl post %}">Read more</a></p>
     {% endfor %}
 
-    {% include "includes/pagination.html" with page=posts %}
+    {% include "cms/includes/pagination.html" with page=posts %}
 {% endblock %}
