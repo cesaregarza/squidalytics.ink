@@ -1,7 +1,10 @@
 <header class="content">
-    <nav>
-        <a href="{{ parent.url }}">Home</a>
-        <!-- Add other navigation links here -->
+    <nav class="navbar is-fixed-top is-dark" role="navigation" aria-label="main navigation">
+        <div class="navbar-start">
+            <a href="/" class="navbar-item">Home</a>
+
+            <a href="/pages/squid-data-research-lab" class="navbar-item">Squid Data Research Lab</a>
+        </div>
     </nav>
     <h1>{{ header_title|default:calling_page.title }}</h1>
     {% block postheader %}{% endblock %}

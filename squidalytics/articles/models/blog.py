@@ -226,5 +226,5 @@ class BlogIndexPage(RoutablePageMixin, Page):
             tags += post.get_tags
         tags = sorted(set(tags))
         return tags
-    
+
     template = "cms/articles/blog_index_page.html"

@@ -27,7 +27,7 @@
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
 </head>
 
-<body class="block">
+<body class="block has-navbar-fixed-top">
     {% block header %}
         {% include "includes/header.html" with parent=site_root calling_page=self %}
     {% endblock header %}

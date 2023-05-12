@@ -1,25 +1,30 @@
 {% load wagtailcore_tags wagtailimages_tags %}
 
-<div class="blog-listing-card">
-    <a class="blog-listing-card__link" href="{% pageurl blog %}">
-        {% if blog.image %}
-            <figure class="blog-listing-card__image">
-                {% image blog.image fill-322x247-c100 loading="lazy" %}
-            </figure>
-        {% endif %}
-        <div class="blog-listing-card__contents">
-            <h2 class="blog-listing-card__title">{{ blog.title }}</h2>
-            {% if blog.introduction %}
-                <p class="blog-listing-card__introduction">{{ blog.introduction|truncatewords:15 }}</p>
+{% comment %} Rewriting the above in bulma style {% endcomment %}
+<div class="card-container">
+    <div class="card is-6">
+        <a class="card-link" href="{% pageurl blog %}">
+            {% if blog.image %}
+                <div class="card-image">
+                    <figure class="image is-4by3">
+                        {% image blog.image fill-322x247-c100 loading="lazy" %}
+                    </figure>
+                </div>
             {% endif %}
-            <p class="blog-listing-card__metadata">
-                {% if blog.date_published %}
-                    {{ blog.date_published }} by
+            <div class="card-content">
+                <h2 class="title is-2">{{ blog.title }}</h2>
+                {% if blog.introduction %}
+                    <p class="subtitle is-4">{{ blog.introduction|truncatewords:15 }}</p>
                 {% endif %}
-                {% for author in blog.authors %}
-                    {{ author }}{% if not forloop.last %}, {% endif %}
-                {% endfor %}
-            </p>
-        </div>
-    </a>
+                <p class="content">
+                    {% if blog.date_published %}
+                        {{ blog.date_published }} by
+                    {% endif %}
+                    {% for author in blog.authors %}
+                        {{ author }}{% if not forloop.last %}, {% endif %}
+                    {% endfor %}
+                </p>
+            </div>
+        </a>
+    </div>
 </div>

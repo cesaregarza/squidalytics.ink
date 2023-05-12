@@ -16,6 +16,6 @@ html, body {
     margin-bottom: 20px;
 }
 
-.header {
-    padding: 20px;
+.card-container {
+    width: 300px;
 }
