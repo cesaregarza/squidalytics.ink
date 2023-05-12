@@ -1,0 +1,13 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+{% include "includes/header.html" with calling_page=calling_page %}
+{% block postheader %}
+<div class="container">
+    <div class="row">
+        <div class="">
+            {% if page.introduction %}
+                <p class="">{{ page.introduction }}</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

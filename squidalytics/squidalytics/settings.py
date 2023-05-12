@@ -49,6 +49,7 @@ SECRET_KEY = os.environ.get(DJANGO_SECRET)
 ALLOWED_HOSTS = [
     "squidalytics.ink",
     "127.0.0.1",
+    "localhost",
     "53d6-107-211-228-55.ngrok-free.app",
 ]
 
@@ -75,7 +76,9 @@ INSTALLED_APPS = [
     "wagtail",
     "modelcluster",
     "taggit",
+    "wagtailcodeblock",
     "landing",
+    "articles",
 ]
 
 MIDDLEWARE = [
@@ -167,11 +170,18 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # default static files settings for PythonAnywhere.
 # see https://help.pythonanywhere.com/pages/DjangoStaticFiles for more info
-if is_production:
+if is_production and DEBUG is False:
     MEDIA_ROOT = "/home/cegarza/squidalytics/media"
     STATIC_ROOT = "/home/cegarza/squidalytics/static"
-else:
+elif is_production and DEBUG is True:
+    raise ValueError("DEBUG cannot be True on production")
+elif not is_production and DEBUG is True:
     STATICFILES_DIRS = [BASE_DIR / "static"]
+elif not is_production and DEBUG is False:
+    STATIC_ROOT = BASE_DIR / "static"
+    MEDIA_ROOT = BASE_DIR / "media"
+else:
+    raise ValueError("This should never happen")
 MEDIA_URL = "/media/"
 STATIC_URL = "/static/"
 
@@ -208,3 +218,11 @@ LOGGING = {
 # Wagtail settings
 WAGTAIL_SITE_NAME = "squidalytics.ink"
 WAGTAILADMIN_BASE_URL = "/cms/"
+WAGTAIL_CODE_BLOCK_LANGUAGES = (
+    ("bash", "Bash/Shell"),
+    ("json", "JSON"),
+    ("python", "Python"),
+    ("yaml", "YAML"),
+)
+WAGTAIL_CODE_BLOCK_THEME = "twilight"
+WAGTAIL_CODE_BLOCK_LINE_NUMBERS = True

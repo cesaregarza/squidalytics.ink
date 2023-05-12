@@ -28,7 +28,7 @@ urlpatterns = [
     path("", hello_world, name="hello_world"),
     path("cms/", include(wagtailadmin_urls)),
     path("documents/", include(wagtaildocs_urls)),
-    path("articles/", include(wagtail_urls)),
+    path("pages/", include(wagtail_urls)),
 ]
 
 if settings.DEBUG:

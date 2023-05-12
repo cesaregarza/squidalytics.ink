@@ -8,3 +8,14 @@
 html, body {
     font-family: 'Splatfont2', sans-serif;
 }
+
+.content .box {
+    background-color: #c0c0c0;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.card-container {
+    width: 300px;
+}

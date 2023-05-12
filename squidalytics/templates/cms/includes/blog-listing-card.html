@@ -1,0 +1,30 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% comment %} Rewriting the above in bulma style {% endcomment %}
+<div class="card-container">
+    <div class="card is-6">
+        <a class="card-link" href="{% pageurl blog %}">
+            {% if blog.image %}
+                <div class="card-image">
+                    <figure class="image is-4by3">
+                        {% image blog.image fill-322x247-c100 loading="lazy" %}
+                    </figure>
+                </div>
+            {% endif %}
+            <div class="card-content">
+                <h2 class="title is-2">{{ blog.title }}</h2>
+                {% if blog.introduction %}
+                    <p class="subtitle is-4">{{ blog.introduction|truncatewords:15 }}</p>
+                {% endif %}
+                <p class="content">
+                    {% if blog.date_published %}
+                        {{ blog.date_published }} by
+                    {% endif %}
+                    {% for author in blog.authors %}
+                        {{ author }}{% if not forloop.last %}, {% endif %}
+                    {% endfor %}
+                </p>
+            </div>
+        </a>
+    </div>
+</div>

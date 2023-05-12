@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags navigation_tags wagtailimages_tags %}
+
+{% if tag %}
+    {% block title %}
+        Viewing all blog posts sorted by tag: {{ tag }}
+    {% endblock %}
+{% endif %}
+
+{% block content %}
+    {% if tag %}
+        <h1>Blog posts tagged with "{{ tag }}"</h1>
+    {% else %}
+        <h1>Blog</h1>
+    {% endif %}
+
+    {% for post in posts %}
+        <h2><a href="{% pageurl post %}">{{ post.title }}</a></h2>
+        <p>{{ post.date }}</p>
+        <p>{{ post.intro }}</p>
+        <p><a href="{% pageurl post %}">Read more</a></p>
+    {% endfor %}
+
+    {% include "cms/includes/pagination.html" with page=posts %}
+{% endblock %}
