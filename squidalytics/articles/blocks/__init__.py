@@ -1,1 +1,1 @@
-from .blocks import BaseStreamBlock
+from .blocks import AudienceSpecificContentBlock, BaseStreamBlock

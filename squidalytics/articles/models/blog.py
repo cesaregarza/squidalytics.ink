@@ -11,7 +11,7 @@ from wagtail.fields import StreamField
 from wagtail.models import Orderable, Page
 from wagtail.search import index
 
-from ..blocks import BaseStreamBlock
+from ..blocks import AudienceSpecificContentBlock, BaseStreamBlock
 from .base import Person
 
 
@@ -81,11 +81,19 @@ class BlogPage(Page):
         "Date article published", blank=True, null=True
     )
 
+    versions = StreamField(
+        [("audience_specific_content", AudienceSpecificContentBlock())],
+        blank=True,
+        null=True,
+        use_json_field=True,
+        verbose_name="Audience Specific Content",
+    )
+
     content_panels = Page.content_panels + [
         FieldPanel("subtitle"),
         FieldPanel("introduction"),
         FieldPanel("image"),
-        FieldPanel("body"),
+        FieldPanel("versions"),
         FieldPanel("date_published"),
         InlinePanel(
             "blog_person_relationship",

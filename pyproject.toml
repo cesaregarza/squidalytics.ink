@@ -13,7 +13,6 @@ django = "^4.2"
 python-dotenv = "^1.0.0"
 wagtail = "^5.0"
 psycopg2-binary = "^2.9.6"
-libsass = "^0.22.0"
 wagtailcodeblock = "^1.29.0.0"
 
 
