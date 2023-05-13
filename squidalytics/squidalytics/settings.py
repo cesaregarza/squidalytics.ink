@@ -53,9 +53,7 @@ ALLOWED_HOSTS = [
     "53d6-107-211-228-55.ngrok-free.app",
 ]
 
-CSRF_TRUSTED_ORIGINS = [
-    'https://squidalytics.ink'
-]
+CSRF_TRUSTED_ORIGINS = ["https://squidalytics.ink"]
 
 
 # Application definition

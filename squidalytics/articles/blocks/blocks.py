@@ -97,3 +97,13 @@ class BaseStreamBlock(StreamBlock):
     code_block = CodeBlock(
         label="Code",
     )
+
+
+class AudienceSpecificContentBlock(StructBlock):
+    audience_name = CharBlock(required=True)
+    content = BaseStreamBlock()
+
+    class Meta:
+        icon = "group"
+        template = "cms/blocks/audience_specific_content_block.html"
+        label = "Audience Specific Content"

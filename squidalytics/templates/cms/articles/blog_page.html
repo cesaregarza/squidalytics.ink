@@ -1,9 +1,8 @@
 {% extends "cms/articles/blog_base.html" %}
-{% load wagtailimages_tags %}
+{% load wagtailimages_tags wagtailcore_tags static %}
 
 {% block content %}
-
-    {% image self.image fill-1920x600 as hero_img %}
+{% image self.image fill-1920x600 as hero_img %}
 
     <div class="container">
         <div class="row">
@@ -18,8 +17,29 @@
                         </div>
                     {% endif %}
                 </div>
+                
+                <h4 class="audience-select">Select your version of this article</h4>
+                <div class="version-selector field">
+                    <p class="control has-icons-left">
+                        <span class="select">
+                            <select id="version-selector">
+                                {% for block in page.versions %}
+                                    <option value="{{ block.value.audience_name }}">{{ block.value.audience_name }}</option>
+                                {% endfor %}
+                            </select>
+                        </span>
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-globe"></i>
+                        </span>
+                    </p>
+                </div>
+                
 
-                {{ page.body }}
+                {% for block in page.versions %}
+                    <div class="version-content" style="display: none;" id="version-{{ block.value.audience_name }}">
+                        {% include_block block.value.content %}
+                    </div>
+                {% endfor %}
 
                 {% if page.get_tags %}
                     <p class="blog__tag-introduction">Find more blog posts with similar tags</p>
@@ -33,4 +53,5 @@
             </div>
         </div>
     </div>
+    <script src="{% static 'js/version-selector.js' %}"></script>
 {% endblock content %}
