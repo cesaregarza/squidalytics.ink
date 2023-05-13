@@ -1,6 +1,5 @@
 {% load wagtailcore_tags wagtailimages_tags %}
 
-{% comment %} Rewriting the above in bulma style {% endcomment %}
 <div class="card-container">
     <div class="card is-6">
         <a class="card-link" href="{% pageurl blog %}">
@@ -16,7 +15,7 @@
                 {% if blog.introduction %}
                     <p class="subtitle is-4">{{ blog.introduction|truncatewords:15 }}</p>
                 {% endif %}
-                <p class="content">
+                <p class="content date-and-author">
                     {% if blog.date_published %}
                         {{ blog.date_published }} by
                     {% endif %}
