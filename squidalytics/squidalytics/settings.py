@@ -79,6 +79,7 @@ INSTALLED_APPS = [
     "modelcluster",
     "taggit",
     "wagtailcodeblock",
+    "wagtailmarkdown",
     "landing",
     "articles",
 ]

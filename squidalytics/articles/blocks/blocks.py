@@ -11,6 +11,7 @@ from wagtail.blocks import (
 from wagtail.embeds.blocks import EmbedBlock
 from wagtail.images.blocks import ImageChooserBlock
 from wagtailcodeblock.blocks import CodeBlock
+from wagtailmarkdown.blocks import MarkdownBlock
 
 
 class ImageBlock(StructBlock):
@@ -82,7 +83,7 @@ class BaseStreamBlock(StreamBlock):
     """
 
     heading_block = HeadingBlock()
-    paragraph_block = RichTextBlock(
+    paragraph_block = MarkdownBlock(
         icon="pilcrow", template="cms/blocks/paragraph_block.html"
     )
     image_block = ImageBlock()
