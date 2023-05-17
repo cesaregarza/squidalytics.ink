@@ -10,6 +10,7 @@ from wagtail.contrib.routable_page.models import RoutablePageMixin, route
 from wagtail.fields import StreamField
 from wagtail.models import Orderable, Page
 from wagtail.search import index
+from wagtailmarkdown.edit_handlers import MarkdownPanel
 
 from ..blocks import AudienceSpecificContentBlock, BaseStreamBlock
 from .base import Person

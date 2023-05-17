@@ -22,6 +22,8 @@ $card-header-background-color: $navbar-background-color;
 $card-header-color: $navbar-item-color;
 $title-color: $body-color;
 $subtitle-color: $body-color;
+$text-strong: $body-color;
+$text-light: $body-color;
 
 // Import the rest of Bulma
 @import "../bulma/bulma";
@@ -47,6 +49,27 @@ html, body {
 
 #selector-icon {
     color: $accent-color;
+}
+
+.select select {
+    color: $body-background-color;
+}
+
+.blog__author {
+    color: $accent-color;
+    font-size: 16pt;
+}
+
+#blog__byline {
+    margin-bottom: 0rem;
+}
+
+.blog__meta {
+    margin-bottom: 0.75rem;
+}
+
+body header.content:first-child {
+    margin-bottom: 0.75rem;
 }
 
 .date-and-author {
