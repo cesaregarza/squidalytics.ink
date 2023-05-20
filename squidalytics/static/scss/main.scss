@@ -4,18 +4,20 @@ $accent-dark: darken($accent-color, 10%);
 $accent-darker: darken($accent-color, 20%);
 $accent-light: lighten($accent-color, 10%);
 $accent-lighter: lighten($accent-color, 20%);
+$white-color: #d6d6d6;
+$black-color: #363636;
 
 // Import Bulma's initial variables
 @import "../bulma/sass/utilities/initial-variables";
 
 // Override variables
-$body-background-color: #363636;
-$body-color: #f5f5f5;
-$link-color: #f5f5f5;
+$body-background-color: $black-color;
+$body-color: $white-color;
+$link-color: $white-color;
 $link-hover-color: lighten($link-color, 10%);
 $content-heading-color: $body-color;
 $navbar-background-color: #272727;
-$navbar-item-color: #f5f5f5;
+$navbar-item-color: $white-color;
 $navbar-item-hover-background-color: lighten($navbar-background-color, 10%);
 $navbar-item-hover-color: $navbar-item-color;
 $footer-background-color: $body-background-color;
