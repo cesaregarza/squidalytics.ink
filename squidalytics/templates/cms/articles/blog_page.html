@@ -37,7 +37,7 @@
                 
 
                 {% for block in page.versions %}
-                    <div class="version-content" style="display: none;" id="version-{{ block.value.audience_name }}">
+                    <div class="version-content is-family-sans-serif" style="display: none;" id="version-{{ block.value.audience_name }}">
                         {% include_block block.value.content %}
                     </div>
                 {% endfor %}
