@@ -10328,4 +10328,16 @@ body header.content:first-child {
   color: #ad5ad7;
 }
 
+.content .blog-title {
+  color: #ad5ad7;
+}
+
+.blog-subtitle {
+  color: #9832cc;
+}
+
+.blog-intro {
+  color: #cfcfcf;
+}
+
 /*# sourceMappingURL=main.css.map */

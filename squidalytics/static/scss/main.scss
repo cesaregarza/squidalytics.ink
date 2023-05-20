@@ -1,5 +1,9 @@
 // Define functions and variables
 $accent-color: #ad5ad7;
+$accent-dark: darken($accent-color, 10%);
+$accent-darker: darken($accent-color, 20%);
+$accent-light: lighten($accent-color, 10%);
+$accent-lighter: lighten($accent-color, 20%);
 
 // Import Bulma's initial variables
 @import "../bulma/sass/utilities/initial-variables";
@@ -74,4 +78,16 @@ body header.content:first-child {
 
 .date-and-author {
     color: $accent-color;
+}
+
+.content .blog-title {
+    color: $accent-color;
+}
+
+.blog-subtitle {
+    color: $accent-dark;
+}
+
+.blog-intro {
+    color: darken($body-color, 15%);
 }
