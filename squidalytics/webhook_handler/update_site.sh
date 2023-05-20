@@ -20,5 +20,13 @@ rm -rf "$TEMP_CLONE_DIR"
 # Restore the .env file
 cp /tmp/squidalytics_env_backup "$DJANGO_PROJECT_DIR/squidalytics/.env"
 
+# Make any migrations
+cd "$DJANGO_PROJECT_DIR/"
+python3 manage.py makemigrations
+python3 manage.py migrate
+
+# Collect static files
+python3 manage.py collectstatic --noinput
+
 # Reload the web application
 touch /var/www/squidalytics_ink_wsgi.py
