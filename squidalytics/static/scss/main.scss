@@ -94,3 +94,7 @@ body header.content:first-child {
 .blog-intro {
     color: darken($body-color, 15%);
 }
+
+.content .content-block > *:not(:last-child) {
+    margin-bottom: $content-block-margin-bottom;
+}

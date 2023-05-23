@@ -10341,4 +10341,8 @@ body header.content:first-child {
   color: #b0b0b0;
 }
 
+.content .content-block > *:not(:last-child) {
+  margin-bottom: 1em;
+}
+
 /*# sourceMappingURL=main.css.map */
