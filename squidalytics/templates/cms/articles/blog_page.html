@@ -35,12 +35,13 @@
                     </p>
                 </div>
                 
-
-                {% for block in page.versions %}
-                    <div class="version-content is-family-sans-serif" style="display: none;" id="version-{{ block.value.audience_name }}">
-                        {% include_block block.value.content %}
-                    </div>
-                {% endfor %}
+                <div class="content">
+                    {% for block in page.versions %}
+                        <div class="version-content is-family-sans-serif content-block" style="display: none;" id="version-{{ block.value.audience_name }}">
+                            {% include_block block.value.content %}
+                        </div>
+                    {% endfor %}
+                </div>
 
                 {% if page.get_tags %}
                     <p class="blog__tag-introduction">Find more blog posts with similar tags</p>

@@ -40,6 +40,7 @@ $text-light: $body-color;
     src: url('/static/fonts/Splatfont2.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
   }
 
 html, body {
@@ -92,4 +93,8 @@ body header.content:first-child {
 
 .blog-intro {
     color: darken($body-color, 15%);
+}
+
+.content .content-block > *:not(:last-child) {
+    margin-bottom: $content-block-margin-bottom;
 }

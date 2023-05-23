@@ -10287,6 +10287,7 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   src: url("/static/fonts/Splatfont2.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 html, body {
   font-family: "Splatfont2", sans-serif;
@@ -10338,6 +10339,10 @@ body header.content:first-child {
 
 .blog-intro {
   color: #b0b0b0;
+}
+
+.content .content-block > *:not(:last-child) {
+  margin-bottom: 1em;
 }
 
 /*# sourceMappingURL=main.css.map */
