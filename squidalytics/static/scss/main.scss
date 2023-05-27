@@ -98,3 +98,7 @@ body header.content:first-child {
 .content .content-block > *:not(:last-child) {
     margin-bottom: $content-block-margin-bottom;
 }
+
+.box figcaption {
+    color: $accent-color;
+}

@@ -10345,4 +10345,8 @@ body header.content:first-child {
   margin-bottom: 1em;
 }
 
+.box figcaption {
+  color: #ad5ad7;
+}
+
 /*# sourceMappingURL=main.css.map */
