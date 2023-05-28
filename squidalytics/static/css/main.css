@@ -10311,6 +10311,9 @@ html, body {
 .blog__author {
   color: #ad5ad7;
   font-size: 16pt;
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 
 #blog__byline {
