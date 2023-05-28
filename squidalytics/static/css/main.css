@@ -10346,7 +10346,8 @@ body header.content:first-child {
 }
 
 .box figcaption {
-  color: #ad5ad7;
+  color: #9832cc;
+  font-weight: bold;
 }
 
 /*# sourceMappingURL=main.css.map */

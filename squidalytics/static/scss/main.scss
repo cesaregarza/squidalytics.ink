@@ -100,5 +100,6 @@ body header.content:first-child {
 }
 
 .box figcaption {
-    color: $accent-color;
+    color: $accent-dark;
+    font-weight: bold;
 }
