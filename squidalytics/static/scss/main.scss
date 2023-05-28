@@ -86,8 +86,22 @@ body header.content:first-child {
     color: $accent-color;
 }
 
-.content .blog-title {
-    color: $accent-color;
+.content {
+    .blog-title {
+        color: $accent-color;
+    }
+
+    .main-title {
+        color: $white-color;
+    }
+
+    strong, h1, h2, h3, h4, h5, h6 {
+        color: $accent-color;
+    }
+
+    .content-block > *:not(:last-child) {
+        margin-bottom: $content-block-margin-bottom;
+    }
 }
 
 .blog-subtitle {
@@ -96,10 +110,6 @@ body header.content:first-child {
 
 .blog-intro {
     color: darken($body-color, 15%);
-}
-
-.content .content-block > *:not(:last-child) {
-    margin-bottom: $content-block-margin-bottom;
 }
 
 .katex-html {
@@ -115,8 +125,4 @@ body header.content:first-child {
     .katex-html {
         color: $accent-light;
     }
-}
-
-strong, h1, h2, h3, h4, h5, h6 {
-    color: $accent-color;
 }
