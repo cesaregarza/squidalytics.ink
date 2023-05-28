@@ -10348,12 +10348,16 @@ body header.content:first-child {
   margin-bottom: 1em;
 }
 
+.katex-html {
+  color: #ad5ad7;
+}
+
 .box figcaption {
-  color: #d6aceb;
+  color: #c183e1;
   font-weight: bold;
 }
-.box mjx-math {
-  color: #ad5ad7;
+.box .katex-html {
+  color: #c183e1;
 }
 
 /*# sourceMappingURL=main.css.map */
