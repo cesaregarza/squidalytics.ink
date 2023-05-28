@@ -10360,7 +10360,7 @@ body header.content:first-child {
   color: #c183e1;
 }
 
-strong {
+strong, h1, h2, h3, h4, h5, h6 {
   color: #ad5ad7;
 }
 
