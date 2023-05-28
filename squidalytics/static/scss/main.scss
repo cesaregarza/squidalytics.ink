@@ -7,6 +7,9 @@ $accent-lighter: lighten($accent-color, 20%);
 $white-color: #d6d6d6;
 $black-color: #363636;
 
+$scrollbar-color: $accent-darker;
+$scrollbar-hover-color: $accent-dark;
+
 // Import Bulma's initial variables
 @import "../bulma/sass/utilities/initial-variables";
 
@@ -114,6 +117,24 @@ body header.content:first-child {
 
 .katex-html {
     color: $accent-color;
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    &::-webkit-scrollbar {
+        width: 10px;
+      }
+    
+      &::-webkit-scrollbar-track {
+        background: $black-color; 
+      }
+      
+      &::-webkit-scrollbar-thumb {
+        background: $scrollbar-color; 
+      }
+    
+      &::-webkit-scrollbar-thumb:hover {
+        background: $scrollbar-hover-color; 
+      }
 }
 
 .box {

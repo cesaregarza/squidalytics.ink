@@ -10355,6 +10355,20 @@ body header.content:first-child {
 
 .katex-html {
   color: #ad5ad7;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+.katex-html::-webkit-scrollbar {
+  width: 10px;
+}
+.katex-html::-webkit-scrollbar-track {
+  background: #363636;
+}
+.katex-html::-webkit-scrollbar-thumb {
+  background: #7a28a3;
+}
+.katex-html::-webkit-scrollbar-thumb:hover {
+  background: #9832cc;
 }
 
 .box figcaption {
