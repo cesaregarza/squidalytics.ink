@@ -65,6 +65,9 @@ html, body {
 .blog__author {
     color: $accent-color;
     font-size: 16pt;
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 
 #blog__byline {
