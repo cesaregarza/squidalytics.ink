@@ -10335,6 +10335,15 @@ body header.content:first-child {
 .content .blog-title {
   color: #ad5ad7;
 }
+.content .main-title {
+  color: #d6d6d6;
+}
+.content strong, .content h1, .content h2, .content h3, .content h4, .content h5, .content h6 {
+  color: #ad5ad7;
+}
+.content .content-block > *:not(:last-child) {
+  margin-bottom: 1em;
+}
 
 .blog-subtitle {
   color: #9832cc;
@@ -10344,12 +10353,22 @@ body header.content:first-child {
   color: #b0b0b0;
 }
 
-.content .content-block > *:not(:last-child) {
-  margin-bottom: 1em;
-}
-
 .katex-html {
   color: #ad5ad7;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+.katex-html::-webkit-scrollbar {
+  width: 10px;
+}
+.katex-html::-webkit-scrollbar-track {
+  background: #363636;
+}
+.katex-html::-webkit-scrollbar-thumb {
+  background: #7a28a3;
+}
+.katex-html::-webkit-scrollbar-thumb:hover {
+  background: #9832cc;
 }
 
 .box figcaption {
@@ -10358,10 +10377,6 @@ body header.content:first-child {
 }
 .box .katex-html {
   color: #c183e1;
-}
-
-strong, h1, h2, h3, h4, h5, h6 {
-  color: #ad5ad7;
 }
 
 /*# sourceMappingURL=main.css.map */
