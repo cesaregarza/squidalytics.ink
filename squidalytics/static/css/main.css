@@ -10352,5 +10352,8 @@ body header.content:first-child {
   color: #d6aceb;
   font-weight: bold;
 }
+.box mjx-math {
+  color: #ad5ad7;
+}
 
 /*# sourceMappingURL=main.css.map */

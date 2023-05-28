@@ -102,7 +102,12 @@ body header.content:first-child {
     margin-bottom: $content-block-margin-bottom;
 }
 
-.box figcaption {
-    color: $accent-lighter;
-    font-weight: bold;
+.box {
+    figcaption {
+        color: $accent-lighter;
+        font-weight: bold;
+    }
+    mjx-math {
+        color: $accent-color;
+    }
 }
