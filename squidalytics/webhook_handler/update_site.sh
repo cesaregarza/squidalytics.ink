@@ -5,6 +5,7 @@ echo "Valid webhook received. Updating site..."
 REPO_URL="https://github.com/cesaregarza/squidalytics.ink.git"
 TEMP_CLONE_DIR="/tmp/squidalytics_clone"
 DJANGO_PROJECT_DIR="/home/cegarza/squidalytics"
+MEDIA_DIR="$DJANGO_PROJECT_DIR/media"
 
 # Backup the .env file
 echo "Backing up .env file..."
@@ -15,8 +16,8 @@ echo "Cloning repository to temporary location..."
 git clone "$REPO_URL" "$TEMP_CLONE_DIR"
 
 # Copy only the child directory containing the Django project to the actual Django project directory
-echo "Copying files to actual Django project directory..."
-rsync -av --delete --exclude=".env" "$TEMP_CLONE_DIR/squidalytics/" "$DJANGO_PROJECT_DIR/"
+echo "Copying files to actual Django project directory, ignoring media files..."
+rsync -av --delete --exclude=".env" --exclude=$MEDIA_DIR "$TEMP_CLONE_DIR/squidalytics/" "$DJANGO_PROJECT_DIR/"
 
 # Remove the temporary clone
 echo "Removing temporary clone..."
