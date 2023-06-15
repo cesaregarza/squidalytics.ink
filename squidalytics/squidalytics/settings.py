@@ -229,3 +229,8 @@ WAGTAIL_CODE_BLOCK_LANGUAGES = (
 )
 WAGTAIL_CODE_BLOCK_THEME = "twilight"
 WAGTAIL_CODE_BLOCK_LINE_NUMBERS = True
+
+# Markdown settings
+WAGTAILMARKDOWN = {
+    "extensions": ["extensions.markdown_ability_tag:AbilityExtension"],
+}

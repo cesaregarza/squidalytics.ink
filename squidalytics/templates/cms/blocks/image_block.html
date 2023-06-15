@@ -1,7 +1,9 @@
 {% load wagtailimages_tags %}
 
 <figure class="box">
-    {% image self.image fill-600x338 loading="lazy" %}
+    <a class="open-modal-button">
+        {% image self.image max-600x338 loading="lazy" %}
+    </a>
     {% if self.caption and self.attribution %}
         <figcaption>{{ self.caption }} - {{ self.attribution }}</figcaption>
     {% elif self.caption %}
@@ -9,4 +11,12 @@
     {% elif self.attribution %}
         <figcaption>{{ self.attribution }}</figcaption>
     {% endif %}
+
+    <div class="modal">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+            {% image self.image original %}
+        </div>
+        <button class="modal-close is-large" aria-label="close"></button>
+    </div>
 </figure>

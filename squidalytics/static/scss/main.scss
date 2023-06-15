@@ -147,3 +147,12 @@ body header.content:first-child {
         color: $accent-light;
     }
 }
+
+.ability-container {
+    display: inline-flex;
+    align-items: baseline;
+    .ability-image {
+        border-radius: 50%; /* Make the image circular */
+        background-color: black; /* Set background color */
+    }
+}

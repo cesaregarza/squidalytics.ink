@@ -10379,4 +10379,13 @@ body header.content:first-child {
   color: #c183e1;
 }
 
+.ability-container {
+  display: inline-flex;
+  align-items: baseline;
+}
+.ability-container .ability-image {
+  border-radius: 50%; /* Make the image circular */
+  background-color: black; /* Set background color */
+}
+
 /*# sourceMappingURL=main.css.map */
