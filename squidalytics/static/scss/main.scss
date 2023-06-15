@@ -151,6 +151,9 @@ body header.content:first-child {
 .ability-container {
     display: inline-flex;
     align-items: baseline;
+    color: $accent-color;
+    gap: 5px;
+    font-weight: bold;
     .ability-image {
         border-radius: 50%; /* Make the image circular */
         background-color: black; /* Set background color */

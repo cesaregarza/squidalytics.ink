@@ -10382,6 +10382,9 @@ body header.content:first-child {
 .ability-container {
   display: inline-flex;
   align-items: baseline;
+  color: #ad5ad7;
+  gap: 5px;
+  font-weight: bold;
 }
 .ability-container .ability-image {
   border-radius: 50%; /* Make the image circular */
