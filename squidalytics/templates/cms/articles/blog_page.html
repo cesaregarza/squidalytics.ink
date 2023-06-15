@@ -57,3 +57,8 @@
     </div>
     <script src="{% static 'js/version-selector.js' %}"></script>
 {% endblock content %}
+
+{% block extra_scripts %}
+    {{ block.super }}
+    <script type="module" src="{% static 'js/modal.js' %}"></script>
+{% endblock extra_scripts %}
