@@ -12,7 +12,7 @@ from wagtail.embeds.blocks import EmbedBlock
 from wagtail.images.blocks import ImageChooserBlock
 from wagtailcodeblock.blocks import CodeBlock
 from wagtailmarkdown.blocks import MarkdownBlock
-from wagtailmedia.blocks import AbstractMediaChooserBlock
+from wagtailmedia.blocks import AudioChooserBlock, VideoChooserBlock
 
 
 class ImageBlock(StructBlock):
@@ -99,7 +99,8 @@ class BaseStreamBlock(StreamBlock):
     code_block = CodeBlock(
         label="Code",
     )
-    media_block = AbstractMediaChooserBlock()
+    audio_block = AudioChooserBlock()
+    video_block = VideoChooserBlock()
 
 
 class AudienceSpecificContentBlock(StructBlock):
