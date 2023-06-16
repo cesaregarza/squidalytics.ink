@@ -76,6 +76,7 @@ class HTMLBlock(RawHTMLBlock):
         icon = "html-icon"
         label = "HTML"
 
+
 class iFrameBlock(StructBlock):
     """
     Custom `StructBlock` that will take a path to a static HTML file and render
