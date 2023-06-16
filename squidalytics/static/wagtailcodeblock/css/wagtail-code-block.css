@@ -1,0 +1,16 @@
+.token.tag:before {
+    content: none !important;
+}
+
+.token.tag {
+    background-color: #fff !important;
+    padding: 0 !important;
+}
+
+.code-block textarea {
+    font-family: FreeMono, monospace;
+}
+
+.code-block code {
+    display: block;
+}

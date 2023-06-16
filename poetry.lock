@@ -924,6 +924,22 @@ files = [
 wagtail = ">=3"
 
 [[package]]
+name = "wagtailmedia"
+version = "0.14.2"
+description = "A Wagtail module for audio and video files."
+category = "main"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "wagtailmedia-0.14.2-py3-none-any.whl", hash = "sha256:402ecc3dcee4024d5c9a11b6cf42010b790560986bd5d0bedaabd105609c8901"},
+    {file = "wagtailmedia-0.14.2.tar.gz", hash = "sha256:5480bbcea839aa3e462acd47323c177f180699467a3196ce3c77d145d4ab9086"},
+]
+
+[package.dependencies]
+Django = ">=3.2"
+Wagtail = ">=4.1"
+
+[[package]]
 name = "webencodings"
 version = "0.5.1"
 description = "Character encoding aliases for legacy web content"
@@ -957,4 +973,4 @@ testing = ["Pillow (>=9.1.0,<11.0.0)", "Wand (>=0.6,<1.0)", "mock (>=3.0,<4.0)",
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "c09e081256dce258a77625b336fb3a821507b9de7e11ab658f0982615d9d9370"
+content-hash = "bf4f364c4d01652160469b996165e256c5c96f3e6e406741d5966fa00602084e"
