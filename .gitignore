@@ -167,3 +167,4 @@ cython_debug/
 local_settings.py
 squidalytics/original_images
 squidalytics/images
+squidalytics/media

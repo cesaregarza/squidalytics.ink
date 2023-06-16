@@ -80,6 +80,7 @@ INSTALLED_APPS = [
     "taggit",
     "wagtailcodeblock",
     "wagtailmarkdown",
+    "wagtailmedia",
     "landing",
     "articles",
 ]
@@ -234,3 +235,11 @@ WAGTAIL_CODE_BLOCK_LINE_NUMBERS = True
 WAGTAILMARKDOWN = {
     "extensions": ["extensions.markdown_ability_tag:AbilityExtension"],
 }
+
+# Wagtailmedia settings
+# WAGTAILMEDIA = {
+#     "MEDIA_MODEL": "",  # string, dotted-notation. Defaults to "wagtailmedia.Media"
+#     "MEDIA_FORM_BASE": "",  # string, dotted-notation. Defaults to an empty string
+#     "AUDIO_EXTENSIONS": [],  # list of extensions
+#     "VIDEO_EXTENSIONS": [],  # list of extensions
+# }
