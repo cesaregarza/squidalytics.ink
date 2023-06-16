@@ -1,0 +1,10 @@
+{% load static %}
+
+{% comment %}
+The block content simply has a path. This should be used to throw it into an
+iframe. Useful for bokeh or plotly graphs. Should be loaded using static.
+{% endcomment %}
+
+<div class="box">
+    <iframe src="{% static value.iframe_path %}" width="100%" height="600px" frameborder="0"></iframe>
+</div>
