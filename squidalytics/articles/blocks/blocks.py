@@ -76,6 +76,19 @@ class HTMLBlock(RawHTMLBlock):
         icon = "html-icon"
         label = "HTML"
 
+class iFrameBlock(StructBlock):
+    """
+    Custom `StructBlock` that will take a path to a static HTML file and render
+    it as an iFrame
+    """
+
+    iframe_path = TextBlock()
+
+    class Meta:
+        icon = "html-icon"
+        template = "cms/blocks/iframe_block.html"
+        label = "iFrame"
+
 
 # StreamBlocks
 class BaseStreamBlock(StreamBlock):
@@ -101,6 +114,7 @@ class BaseStreamBlock(StreamBlock):
     )
     audio_block = AudioChooserBlock()
     video_block = VideoChooserBlock()
+    iframe_block = iFrameBlock()
 
 
 class AudienceSpecificContentBlock(StructBlock):
