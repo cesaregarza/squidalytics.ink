@@ -15,6 +15,7 @@ $scrollbar-hover-color: $accent-dark;
 @import "../bulma/sass/utilities/initial-variables";
 
 // Override variables
+$primary: $accent-color;
 $body-background-color: $black-color;
 $body-color: $white-color;
 $link-color: $white-color;

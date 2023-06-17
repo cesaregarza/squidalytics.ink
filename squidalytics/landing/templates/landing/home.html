@@ -1,8 +1,15 @@
 {% extends "base.html" %}
-
-{% block title %}{{ title }}{% endblock %}
-
+{% block title %} Home {% endblock %}
 {% block content %}
-    <h1>{{ title }}</h1>
-    <p>{{ content }}</p>
+<section class="section">
+    <div class="container">
+        <h1 class="title is-1">Welcome to Squidalytics.ink!</h1>
+        <p class="subtitle">Advanced analytics for Splatoon 3 using Data Science</p>
+        <hr>
+        <p>Check out our latest research on the Squid Data Research Lab.</p>
+        <div class="control">
+            <a class="button is-primary" href="/squid-data-research-lab">Visit the Lab</a>
+        </div>
+    </div>
+</section>
 {% endblock %}
