@@ -101,6 +101,9 @@ class BaseStreamBlock(StreamBlock):
     paragraph_block = MarkdownBlock(
         icon="pilcrow", template="cms/blocks/paragraph_block.html"
     )
+    boxed_paragraph_block = MarkdownBlock(
+        icon="form", template="cms/blocks/boxed_paragraph_block.html"
+    )
     image_block = ImageBlock()
     block_quote = BlockQuote()
     embed_block = EmbedBlock(
