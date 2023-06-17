@@ -76,6 +76,7 @@ class HTMLBlock(RawHTMLBlock):
         icon = "html-icon"
         label = "HTML"
 
+
 class iFrameBlock(StructBlock):
     """
     Custom `StructBlock` that will take a path to a static HTML file and render
@@ -99,6 +100,9 @@ class BaseStreamBlock(StreamBlock):
     heading_block = HeadingBlock()
     paragraph_block = MarkdownBlock(
         icon="pilcrow", template="cms/blocks/paragraph_block.html"
+    )
+    boxed_paragraph_block = MarkdownBlock(
+        icon="form", template="cms/blocks/boxed_paragraph_block.html"
     )
     image_block = ImageBlock()
     block_quote = BlockQuote()

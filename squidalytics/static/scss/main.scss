@@ -5,6 +5,7 @@ $accent-darker: darken($accent-color, 20%);
 $accent-light: lighten($accent-color, 10%);
 $accent-lighter: lighten($accent-color, 20%);
 $white-color: #d6d6d6;
+$whiter-color: lighten($white-color, 10%);
 $black-color: #363636;
 
 $scrollbar-color: $accent-darker;
@@ -19,20 +20,33 @@ $body-color: $white-color;
 $link-color: $white-color;
 $link-hover-color: lighten($link-color, 10%);
 $content-heading-color: $body-color;
+
 $navbar-background-color: #272727;
 $navbar-item-color: $white-color;
 $navbar-item-hover-background-color: lighten($navbar-background-color, 10%);
 $navbar-item-hover-color: $navbar-item-color;
 $footer-background-color: $body-background-color;
 $footer-color: $body-color;
+
 $card-background-color: lighten($body-background-color, 10%);
 $card-color: $body-color;
 $card-header-background-color: $navbar-background-color;
 $card-header-color: $navbar-item-color;
+
 $title-color: $body-color;
 $subtitle-color: $body-color;
 $text-strong: $body-color;
 $text-light: $body-color;
+
+$table-color: $body-color;
+$table-background-color: lighten($navbar-background-color, 3%);
+$table-border-color: $accent-color;
+$table-head-cell-color: $accent-color;
+$table-cell-heading-color: $accent-color;
+$table-striped-row-even-background-color: lighten($navbar-background-color, 7%);
+$table-striped-row-even-hover-background-color: lighten($navbar-background-color, 12%);
+$table-row-active-background-color: $accent-darker;
+$table-row-active-color: $whiter-color;
 
 // Import the rest of Bulma
 @import "../bulma/bulma";
@@ -104,6 +118,17 @@ body header.content:first-child {
 
     .content-block > *:not(:last-child) {
         margin-bottom: $content-block-margin-bottom;
+    }
+
+    table {
+        thead th {
+            color: $accent-color;
+            background-color: $navbar-background-color;
+        }
+
+        th {
+            color: $accent-lighter;
+        }
     }
 }
 
